@@ -157,7 +157,7 @@
 									</div><!-- /.about-three__list__icon -->
 									<div class="about-three__list__content">
 										<h3 class="about-three__list__title"><a href="service-cyber-security.html">IT Solutions & Cybersecurity</a></h3><!-- /.about-three__list__title -->
-										<p class="about-three__list__text">raveSpark provides reliable IT solutions, from system design to implementation, with a strong focus on cybersecurity to protect your business and data</p><!-- /.about-three__list__text -->
+										<p class="about-three__list__text">BraveSpark provides reliable IT solutions, from system design to implementation, with a strong focus on cybersecurity to protect your business and data.</p><!-- /.about-three__list__text -->
 									</div><!-- /.about-three__list__content -->
 								</li>
 								<li class="about-three__list__item">
@@ -259,7 +259,7 @@
          
             <div class="container">
               <p class="section-title__text">Need Any Technology Solution</p>
-          <h2 class="section-title__title section-title__title--light">Let’s Work Togather on Project</h2>
+          <h2 class="section-title__title section-title__title--light">Let’s Work Together on Project</h2>
     
                 
             </div>
