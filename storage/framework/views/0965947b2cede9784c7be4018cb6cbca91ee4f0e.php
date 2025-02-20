@@ -21,7 +21,7 @@
     </style>
 </head>
 
-<body class="h-100" style="background-image: url('<?php  echo URL::to('/public/employee/images/biovus_employee_login.jpg') ?>')">
+<body class="h-100" style="background-image: url('<?php  echo URL::to('/public/employee/images/student_login.jpg') ?>')">
     
     <!--*******************
         Preloader start
