@@ -1,11 +1,11 @@
 
-@include('MainPage.main-style')
+<?php echo $__env->make('MainPage.main-style', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
 
 <div class="page-wrapper">
 
 
-  @include('MainPage.nav-menu')
+  <?php echo $__env->make('MainPage.nav-menu', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
 
 
@@ -31,7 +31,7 @@
                 BraveSpark </h2><!-- /.slider-one__title -->
             </div><!-- /.slider-one__title-wrapper -->
             <div class="slider-one__btns">
-              <a href="{{ URL::to('/') }}" class="thm-btn slider-one__btn"><span>Learn More</span></a>
+              <a href="<?php echo e(URL::to('/')); ?>" class="thm-btn slider-one__btn"><span>Learn More</span></a>
               <!-- /.thm-btn slider-one__btn -->
             </div><!-- /.slider-one__btns -->
           </div><!-- /.slider-one__content -->
@@ -49,7 +49,7 @@
                 Training Programs</h2><!-- /.slider-one__title -->
             </div><!-- /.slider-one__title-wrapper -->
             <div class="slider-one__btns">
-              <a href="{{ URL::to('/') }}" class="thm-btn slider-one__btn"><span>Learn More</span></a>
+              <a href="<?php echo e(URL::to('/')); ?>" class="thm-btn slider-one__btn"><span>Learn More</span></a>
               <!-- /.thm-btn slider-one__btn -->
             </div><!-- /.slider-one__btns -->
           </div><!-- /.slider-one__content -->
@@ -161,7 +161,7 @@
           transition: transform 0.5s ease-in-out;
       }
 
-      @keyframes rotate-circle {
+      @keyframes  rotate-circle {
           from {
               transform: rotate(0deg);
           }
@@ -425,7 +425,7 @@
                   <div class="blog-card-one">
                     <div class="blog-card-one__image">
                       <img src="public/new-image/1.png" alt="">
-                      <a href="{{ URL::to('/') }}"></a>
+                      <a href="<?php echo e(URL::to('/')); ?>"></a>
                     </div><!-- /.blog-card-one__image -->
                     <div class="blog-card-one__content">
                       <div class="blog-card-one__meta">
@@ -444,7 +444,7 @@
                   <div class="blog-card-one">
                     <div class="blog-card-one__image">
                       <img src="public/new-image/3 (1).png" alt="">
-                      <a href="{{ URL::to('/') }}"></a>
+                      <a href="<?php echo e(URL::to('/')); ?>"></a>
                     </div><!-- /.blog-card-one__image -->
                     <div class="blog-card-one__content">
                       <h3 class="blog-card-one__title text-center">T.V Sudharasan</h3>
@@ -460,7 +460,7 @@
                   <div class="blog-card-one">
                     <div class="blog-card-one__image">
                       <img src="public/new-image/5.png" alt="">
-                      <a href="{{ URL::to('/') }}"></a>
+                      <a href="<?php echo e(URL::to('/')); ?>"></a>
                     </div><!-- /.blog-card-one__image -->
                     <div class="blog-card-one__content">
                       <h3 class="blog-card-one__title text-center">Divya</h3>
@@ -481,7 +481,7 @@
                   <div class="blog-card-one">
                     <div class="blog-card-one__image">
                       <img src="public/new-image/6.png" alt="">
-                      <a href="{{ URL::to('/') }}"></a>
+                      <a href="<?php echo e(URL::to('/')); ?>"></a>
                     </div><!-- /.blog-card-one__image -->
                     <div class="blog-card-one__content">
                       <h3 class="blog-card-one__title text-center">Hari</h3>
@@ -604,4 +604,5 @@
   </div>
 </div>
 
-@include('MainPage.main-footer')
+<?php echo $__env->make('MainPage.main-footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+<?php /**PATH C:\xampp\htdocs\dashboard\code\GIT\Spark\resources\views/MainPage/course-page.blade.php ENDPATH**/ ?>
