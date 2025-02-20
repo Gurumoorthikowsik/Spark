@@ -1,15 +1,33 @@
 <IfModule mod_rewrite.c>
- <IfModule mod_negotiation.c>
- Options -MultiViews
- </IfModule>
+    RewriteEngine On
 
- RewriteEngine On
+    # Redirect Trailing Slashes
+    RewriteRule ^(.*)/$ /$1 [L,R=301]
 
- # Redirect Trailing Slashes...
- RewriteRule ^(.*)/$ /$1 [L,R=301]
+    # Handle Front Controller for Laravel (index.php)
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteRule ^ index.php [L]
 
- # Handle Front Controller...
- RewriteCond %{REQUEST_FILENAME} !-d
- RewriteCond %{REQUEST_FILENAME} !-f
- RewriteRule ^ index.php [L]
+    # Custom error pages (optional)
+    ErrorDocument 404 /404.html
 </IfModule>
+
+# Disable directory browsing
+Options -Indexes
+
+# Ensure the .env and .gitignore files are not publicly accessible
+<Files .env>
+    Order allow,deny
+    Deny from all
+</Files>
+
+<Files .gitignore>
+    Order allow,deny
+    Deny from all
+</Files>
+
+<Files .env.example>
+    Order allow,deny
+    Deny from all
+</Files>
