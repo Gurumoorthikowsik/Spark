@@ -1,0 +1,273 @@
+<?php echo $__env->make('common.inner_header', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+<?php echo $__env->make('common.sidebar', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+<style type="text/css">
+.dataTables_wrapper { font-family: "--vz-body-font-family"}
+
+
+.dt-buttons button {
+    background: #0ab39c;
+    color: white;
+    border: #0ab39c;
+    border-radius: 0.25rem;
+    padding: 10px;
+}
+thead {
+    background: #f3f6f9;
+}
+div#example_paginate span a.paginate_button.current {
+    color: #fff !important;
+}
+.dataTables_wrapper .dataTables_paginate .paginate_button.current, .dataTables_wrapper .dataTables_paginate .paginate_button.current {
+    background-color: #405189 !important;
+    border-color: #405189 !important;
+    font-weight: 500 !important;
+}
+a.paginate_button {
+    border: 1px solid #e2e2ec !important;
+    
+}div#example_paginate a {
+    margin: 5px 3px;
+}
+div.dt-buttons {
+    float: left;
+    padding-bottom: 16px;
+}
+button.dt-button:hover:not(.disabled){
+    border: 1px solid #fff;
+background: linear-gradient(to bottom, rgb(10 179 156) 0%, rgb(10 179 156) 100%);
+}
+table.dataTable.display>tbody>tr.odd>.sorting_1{
+    box-shadow:unset !important;
+}
+table.dataTable.display tbody tr:hover>.sorting_1, table.dataTable.order-column.hover tbody tr:hover>.sorting_1 {
+     box-shadow: unset !important; 
+}
+a#example_previous {
+    border: 1px solid #e9ebec;
+    background: white;
+    color: #878a99 !important;
+    border-radius: 0.25rem !important;
+}
+
+
+</style>
+
+            <div class="vertical-overlay"></div>
+
+            <!-- ============================================================== -->
+            <!-- Start right Content here -->
+            <!-- ============================================================== -->
+            <div class="main-content">
+
+<!-- ==========================================================Table Start====================================================================== -->
+                <div class="page-content">
+                    <div class="container-fluid">
+
+                        <div class="card" id="contactList">
+                            <div class="card-header">
+                                <div class="row align-items-center g-3">
+                                    <div class="col-md-3">
+                                        <h5 class="card-title mb-0">Student List</h5>
+                                    </div><!--end col-->
+                                    <div class="col-md-auto ms-auto">
+                                        <div class="d-flex gap-2">
+                                            <!-- <div class="search-box">
+                                                <input type="text" class="form-control search" placeholder="Search for staff...">
+                                                <i class="ri-search-line search-icon"></i>
+                                            </div> -->
+                                           
+                                        </div>
+                                    </div><!--end col-->
+                                </div><!--end row-->
+                            </div><!--end card-header-->
+                            <div class="row">
+                            <div class="col-lg-12">
+                                <div class="card">
+                                    
+                                    <div class="card-body">
+                                        <div id="table-gridjs">
+                                            
+
+                                            
+                                                <table id="example" class="display nowrap " style="width:100%">
+                                        <thead>
+                                            <tr>
+                                                
+                                                <th class="sort" data-sort="id" scope="col">S.No</th>
+                                                <th class="sort" data-sort="currency_name" scope="col">Student ID</th>
+                                                 <th class="sort" data-sort="name">User Name</th>
+                                                <th class="sort" data-sort="currency_name">Email ID</th>
+                                                <th class="sort" data-sort="currency_name">Password</th>
+                                                <th class="sort" data-sort="role">Role</th>
+
+                                                <th class="sort" data-sort="currency_name">Date Of Join</th>
+
+
+                                                
+                                                <th class="sort" data-sort="status">Status</th>
+                                                <th class="sort" data-sort="action">Action</th>
+                                            </tr><!--end tr-->
+                                        </thead>
+                                        <tbody class="list form-check-all">
+
+
+                                        <?php if($employee->count() != 0): ?>
+                                        <?php $i = 1; ?>
+                                        <?php $__currentLoopData = $employee->get(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $value): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                        <tr class="item">
+                                            <td class="id"><?php echo e($i); ?></td>
+                                            <td class="employe"><?php echo e($value->employee_id); ?></td>
+                                            <td class="name"><?php echo e($value->username); ?></td>
+                                            <td class="currency_name"><?php echo e(encrypt_decrypt('decrypt',$value->email)); ?></td>
+                                            <td class="currency_name"><?php echo e(encrypt_decrypt('decrypt',$value->password)); ?></td>
+                                            <!-- <?php echo e(encrypt_decrypt('decrypt',$value->email)); ?> -->
+                                            <td class="role"><?php echo e(get_roll($value->position)); ?></td>
+                                            <td class="role"><?php echo e($value->date_join); ?></td>
+                                            
+
+                                            
+
+                                            <td class="status">
+                                                <?php if($value->status == 1): ?>
+                                                <span class="badge badge-soft-success text-uppercase">Active</span>
+                                                <?php else: ?>
+                                                <span class="badge badge-soft-danger text-uppercase">Deactive</span>
+                                                <?php endif; ?>
+                                            </td>
+                                            <td>
+                                                <div class="d-flex gap-2">
+                                                    <?php if(page_access(user_id(),'edit_Staff_Details') == 1): ?>
+                                                    <div class="edit">
+                                                        <a href="<?php echo e(URL::to('/staff_status')); ?>/<?php echo e(encrypt_decrypt('encrypt',$value->userid)); ?>"><button class="btn btn-sm btn-warning edit-item-btn"
+                                                        >Status</button></a>
+                                                    </div>
+                                                    <?php endif; ?>
+                                                    <?php if(page_access(user_id(),'edit_Staff_Details') == 1): ?>
+                                                    <div class="edit">
+                                                        <a href="<?php echo e(URL::to('/edit_staff')); ?>/<?php echo e(encrypt_decrypt('encrypt',$value->userid)); ?>"><button class="btn btn-sm btn-success edit-item-btn">Edit</button></a>
+                                                    </div>
+                                                    <?php endif; ?>
+                                                    <!-- <div class="edit">
+                                                        <a href="<?php echo e(URL::to('/staff_proof')); ?>/<?php echo e(encrypt_decrypt('encrypt',$value->userid)); ?>"><button class="btn btn-sm btn-success edit-item-btn"><i class="bx bxs-file-doc"></i></button></a>
+                                                    </div> -->
+
+                                                    <?php if(page_access(user_id(),'edit_Staff_Details') == 1): ?>
+                                                    <div class="remove">
+                                                        <a onclick="return confirm('Are you sure you would delete the user ?');" href="<?php echo e(URL::to('/delete_staff')); ?>/<?php echo e(encrypt_decrypt('encrypt',$value->userid)); ?>"><button class="btn btn-sm btn-danger remove-item-btn">Remove</button></a>
+                                                    </div>
+                                                    <?php endif; ?>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <?php $i++; ?>
+                                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                        <?php else: ?>
+                                         <tr>
+                                            <td>
+                                                <center><p class="not_found">Records Not Found</p></center>
+                                            </td>
+                                        </tr>
+                                        <?php endif; ?>
+                                                
+                                        </tbody>
+                                    </table><!--end table-->
+
+
+                                    <div class="noresult" style="display: none">
+                                        <div class="text-center">
+                                            <lord-icon src="https://cdn.lordicon.com/msoeawqm.json" trigger="loop"
+                                                colors="primary:#405189,secondary:#0ab39c" style="width:75px;height:75px">
+                                            </lord-icon>
+                                            <h5 class="mt-2">Sorry! No Result Found</h5>
+                                            
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+
+
+
+                                </div>
+                                    </div>
+                                </div>
+                                      
+                                </div>
+                                    </div>
+                                <!-- <div class="d-flex justify-content-end mt-3">
+                                    <div class="pagination-wrap hstack gap-2">
+                                        <a class="page-item pagination-prev disabled" href="#">
+                                            Previous
+                                        </a>
+                                        <ul class="pagination listjs-pagination mb-0"></ul>
+                                        <a class="page-item pagination-next" href="#">
+                                            Next
+                                        </a>
+                                    </div>
+                                </div> -->
+                            </div><!--end card-body-->
+                        </div><!--end card-->
+
+                    </div>
+                    <!-- container-fluid -->
+                </div>
+                <!-- End Page-content -->
+<!-- ==========================================================Table End====================================================================== -->
+
+
+           
+            </div>
+
+
+
+<?php echo $__env->make('common.inner_footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+
+<script>
+$(document).ready(function() {
+    $('#example').DataTable( {
+        scrollX:true,
+        dom: 'Bfrtip',
+        buttons: [
+          
+      {
+             extend: 'copyHtml5',
+             text: 'Copy',
+             className: 'btn btn-default',
+                exportOptions: {
+                    columns: 'th:not(:last-child)'
+                }
+            },
+            {
+         extend: 'excel',
+         text: 'Excel',
+         className: 'btn btn-default',
+         exportOptions: {
+            columns: 'th:not(:last-child)'
+         }
+      },
+            // {
+            //     extend: 'pdfHtml5',
+            //     text: 'PDF',
+            //     className: 'btn btn-default',
+            //     exportOptions: {
+            //         columns: 'th:not(:last-child)'
+            //     }
+            // },
+            {
+                extend: 'print',
+                text: 'Print',
+                className: 'btn btn-default',
+                exportOptions: {
+                    columns: 'th:not(:last-child)'
+                }
+            },
+     
+
+     
+        ]
+    } );
+} );
+    </script>
+<?php /**PATH C:\xampp\htdocs\dashboard\code\learnGit\example-app\resources\views/staff/view_staff.blade.php ENDPATH**/ ?>

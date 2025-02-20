@@ -1,0 +1,98 @@
+.error {
+	color :#d55757;
+}
+
+/**
+Dimmer
+*/
+.dimmer {
+  position: relative; }
+  .dimmer .loader {
+    display: none;
+    margin: 0 auto;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%); }
+  .dimmer.active .loader {
+    display: block; }
+  .dimmer.active .dimmer-content {
+    opacity: .04;
+    pointer-events: none; }
+
+
+
+
+/*  Hide "all-day" texts from list view... */
+.fc-list-item-time {
+  display:none;
+}
+
+
+.fc-event {
+  background-color: #2aae2a;
+  border: none;
+}
+
+.fc-content {
+  padding: 3px;
+}
+
+.fc-event-dot {
+  background-color: #2aae2a;
+}
+
+.warning {
+  background-color: #ff6500;
+}
+.fc-list-item.warning {
+  background-color: rgba(255, 101, 0, 0.5);
+}
+
+.fc-list-item.warning .fc-event-dot {
+  background-color: #ff6500;
+}
+
+
+
+.fc-list-item.error {
+  background-color: rgba(255, 0, 64, 0.4);
+}
+
+.fc-list-item.error .fc-event-dot {
+  background-color: #ff0040;
+}
+
+
+
+.float-right {
+  float: right;
+}
+
+/*a {
+  color: white;
+}
+*/
+#today_working_hrs{
+  background-color: #f93c95;
+  height: auto;
+  min-height: 200px;
+}
+
+
+.working_hrs_dashboard h4{
+  color : white
+
+}
+
+.clock_wrk {
+  background-color: white;
+}
+
+
+
+
+
+
