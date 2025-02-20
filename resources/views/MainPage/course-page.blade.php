@@ -83,7 +83,7 @@
           <div class="card" style="width: 18rem;">
             <img src="public/new-image/mern.webp" class="card-img-top" alt="...">
             <div class="card-body">
-              <h5 class="card-title text-center">MERN Stack</h5>
+              <h5 class="card-title text-center">MERN Full Stack</h5>
             </div>
           </div>
         </div>
