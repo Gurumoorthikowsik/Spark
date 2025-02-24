@@ -481,7 +481,7 @@
          
             <div class="container">
               <p class="section-title__text">Need Any Technology Solution</p>
-          <h2 class="section-title__title section-title__title--light">Let’s Work Togather on Project</h2>
+          <h2 class="section-title__title section-title__title--light">Let’s Work Together on Project</h2>
     
                 
             </div>

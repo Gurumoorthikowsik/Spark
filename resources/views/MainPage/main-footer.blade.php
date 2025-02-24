@@ -57,10 +57,10 @@
                 <div class="footer-widget footer-widget--contact">
                     <h3 class="footer-widget__title">Contact</h3><!-- /.footer-widget__title -->
                     <ul class="footer-widget__contact">
-                        <li>
+                        {{-- <li>
                             <i class="fa fa-phone"></i>
                             <a href="tel:+8898006802">+ 88 ( 9800 ) 6802</a>
-                        </li>
+                        </li> --}}
                         <li>
                             <i class="fa fa-envelope"></i>
                             <a href="mailto:bravesparkinfotech@gmail.com">bravesparkinfotech@gmail.com</a>
