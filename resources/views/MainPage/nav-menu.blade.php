@@ -25,7 +25,7 @@
 <nav class="main-menu sticky-header">
     <div class="container-fluid">
         <div class="main-menu__logo me-4">
-            <a href="index.html">
+            <a href="{{ URL::to('/') }}">
                 <img src="{{ URL::to('/') }}/public/asset/images/favicons/bravespark-logo.png"  width="180" width="98" alt="bravespark">
             </a>
         </div><!-- /.main-menu__logo -->

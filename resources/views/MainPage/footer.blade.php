@@ -90,7 +90,7 @@
     </a>
 
     <div class="logo-box">
-        <a href="index.html" aria-label="logo image"><img src="public/asset/images/favicons/bravespark-logo.png" width="98"
+        <a href="{{ URL::to('/') }}" aria-label="logo image"><img src="public/asset/images/favicons/bravespark-logo.png" width="98"
                 height="33" alt="BraveSpark"></a>
     </div>
     <!-- /.logo-box -->
