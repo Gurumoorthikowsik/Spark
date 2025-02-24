@@ -98,10 +98,10 @@
     <!-- /.mobile-nav__container -->
 
     <ul class="mobile-nav__contact list-unstyled">
-        <li>
+        {{-- <li>
             <i class="fa fa-phone"></i>
             <a href="tel:+8898006802">+ 88 ( 9800 ) 6802</a>
-        </li>
+        </li> --}}
         <li>
             <i class="fa fa-envelope"></i>
             <a href="mailto:bravesparkinfotech@gmail.com">bravesparkinfotech@gmail.com</a>

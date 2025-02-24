@@ -231,7 +231,7 @@
 					<div class="col-lg-6">
  
 
-
+                        
                         <div id="big_diamond">
                             <div class="diamond" style="background-image: url('public/new-image/c#.webp');"></div>
                             <div class="diamond" style="background-image: url('public/new-image/docker.webp');"></div>
