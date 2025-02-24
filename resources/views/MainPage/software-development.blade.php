@@ -233,7 +233,7 @@
 
                         
                         <div id="big_diamond">
-                            <div class="diamond" style="background-image: url('public/new-image/c#.webp');"></div>
+                            <div class="diamond" style="background-image: url('public/new-image/csharp.webp');"></div>
                             <div class="diamond" style="background-image: url('public/new-image/docker.webp');"></div>
                             <div class="diamond" style="background-image: url('public/new-image/github.webp');"></div>
                             <div class="diamond" style="background-image: url('public/new-image/mysql.webp');"></div>
