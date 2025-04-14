@@ -224,14 +224,15 @@ $profile = DB::table('user_info')->where('userid',Session::get('empuser_id'))->s
                     </li>
                     
 
-                    
-                    <li class="mega-menu mega-menu-sm">
-                        <a class="has-arrow" href="javascript:void()" aria-expanded="false">
-                            <i class="icon-notebook menu-icon"></i><span class="nav-text">Certificate Management</span>
+
+                    <li>
+                        <a href="<?php echo e(URL::to('/employees/StudentCertificate')); ?>" aria-expanded="true">
+                            <i class="icon-note menu-icon"></i><span class="nav-text">Certificate Management</span>
                         </a>
-                    
                     </li>
-   
+
+                    
+
                     
                     
 

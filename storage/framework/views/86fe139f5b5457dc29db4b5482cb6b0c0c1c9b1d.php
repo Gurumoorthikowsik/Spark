@@ -25,7 +25,7 @@
                                 
                             
                             
-                                <button id="downloadPdfBtn" class="btn btn-primary mt-3">Download Certificate as PDF</button>
+                                
 
                             </div>
                                 <?php else: ?>
