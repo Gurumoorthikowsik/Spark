@@ -439,7 +439,7 @@ public function addcertificate(Request $request)
 
 
 
-    $certificateID = date('Y') . '-' . $studentid;
+    $certificateID = $studentid . date('Y');
 
 
     $insertData = [
