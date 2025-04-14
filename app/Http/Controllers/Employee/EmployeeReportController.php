@@ -16,6 +16,8 @@ use DB;
 use Illuminate\Support\Facades\Mail;
 use Cloudinary\Cloudinary;
 use Illuminate\Support\Facades\Storage;
+use App\Models\StudentCertificate;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 
 class EmployeeReportController extends Controller{  
@@ -321,6 +323,46 @@ class EmployeeReportController extends Controller{
             return view('employee/source-code-update',$data);
 
     }
+
+
+    
+public function StudentCertificate(){
+
+$user_id = emp_user_id();
+
+
+
+$data['certificate'] = StudentCertificate::where('user_id', $user_id)->first();
+
+
+
+$data['js_file'] = 'Student_Certificate';
+$data['title'] = 'Student Certificate';
+        return view('employee/student-certificate',$data);
+
+}
+
+
+public function downloadCertificate()
+{
+    $user_id = emp_user_id();
+
+    // Make sure you query using the correct field, probably 'studentid', not 'id'
+    $certificate = StudentCertificate::where('user_id', $user_id)->first();
+
+    if (!$certificate) {
+        return redirect()->back()->with('error', 'Certificate not found.');
+    }
+
+    
+    $js_file = 'Student_Certificate';
+    $title = 'Student Certificate';
+
+    $pdf = Pdf::loadView('employee.student-certificate', compact('certificate', 'js_file', 'title' ));
+
+    return $pdf->download('Student_Certificate.pdf');
+}
+
 
 }
 

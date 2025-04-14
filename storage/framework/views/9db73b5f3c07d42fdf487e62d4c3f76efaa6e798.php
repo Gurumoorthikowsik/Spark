@@ -200,7 +200,7 @@
         </a>
 
         <div class="logo-box">
-            <a href="index.html" aria-label="logo image"><img src="public/asset/images/favicons/bravespark-logo.png" width="98"
+            <a href="<?php echo e(URL::to('/')); ?>" aria-label="logo image"><img src="public/asset/images/favicons/bravespark-logo.png" width="98"
                     height="33" alt="BraveSpark"></a>
         </div>
         <!-- /.logo-box -->
@@ -208,10 +208,7 @@
         <!-- /.mobile-nav__container -->
 
         <ul class="mobile-nav__contact list-unstyled">
-            <li>
-                <i class="fa fa-phone"></i>
-                <a href="tel:+8898006802">+ 88 ( 9800 ) 6802</a>
-            </li>
+            
             <li>
                 <i class="fa fa-envelope"></i>
                 <a href="mailto:bravesparkinfotech@gmail.com">bravesparkinfotech@gmail.com</a>
@@ -259,7 +256,7 @@
          
             <div class="container">
               <p class="section-title__text">Need Any Technology Solution</p>
-          <h2 class="section-title__title section-title__title--light">Let’s Work Togather on Project</h2>
+          <h2 class="section-title__title section-title__title--light">Let’s Work Together on Project</h2>
     
                 
             </div>

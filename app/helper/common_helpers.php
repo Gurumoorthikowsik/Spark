@@ -769,10 +769,7 @@ function stu_page_access($userId){
 
     $check_user = User::select('position')->where('position',$userId)->first();
 
-    echo "<pre>";
-    print_r($check_user);
-    die;
-    
+
 
     $result = unserialize($check_user->page_access);
     // echo '<pre>';
@@ -786,6 +783,18 @@ function stu_page_access($userId){
     }
 }
 
+function getstudentid($id){
+    $user = User::select('employee_id', 'userid')->where('employee_id',$id)->first();
+
+    if($user){
+
+        return $user->userid;
+
+       
+    }else{
+        return '--';
+    }
+}
 
 
 

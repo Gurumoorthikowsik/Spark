@@ -349,6 +349,10 @@ Route::group(['middleware' => ['employeeauth','undermaintenance','web','throttle
     Route::get('employees/updateSrccode/{id}', [EmployeeReportController::class, 'updateSrccode']);
 
     
+    Route::get('employees/StudentCertificate', [EmployeeReportController::class, 'StudentCertificate']);
+    Route::post('/download-certificate', [EmployeeReportController::class, 'downloadCertificate'])->name('certificate.download');
+
+    
     // Attentance
     Route::match(['get', 'post'],'employees/attendance', [EmployeeAttendanceController::class, 'attendance']);  
     Route::get('employees/daily_working_hrs', [EmployeeAttendanceController::class, 'daily_working_hrs']);

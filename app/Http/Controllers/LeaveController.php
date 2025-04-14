@@ -15,6 +15,7 @@ use Carbon\Carbon;
 use App\Models\Notification;
 use App\Models\Roll;
 use App\Models\Project;
+use App\Models\StudentCertificate;
 use Cloudinary\Cloudinary;
 use Illuminate\Support\Facades\Storage;
 
@@ -394,99 +395,89 @@ public function create_certificate(){
 
 }
 
-
-public function addcertificate(Request $request){
-
-
- // Validation
- $validated = $request->validate([
-    'Cname' => 'required',
-    'CDate' => 'required',
-    'coursename' => 'required',
-    'file' => 'required',
-], [
-    'Cname.required' => 'Please enter a Student Certificate Name',
-    'CDate.required' => 'Please enter Date',
-    'coursename.required' => 'Please enter a coursename.',
-
-]);
-
-
-
-// Initialize Cloudinary
-$cloudinary = new Cloudinary();
-
-// Handle file upload (to Cloudinary)
-$filePath = null;
-if ($request->hasFile('file')) {
-    // Get the uploaded file
-    $file = $request->file('file');
-    
-    // Upload the file to Cloudinary
-    $uploadResponse = $cloudinary->uploadApi()->upload($file->getRealPath(), [
-        'folder' => 'projects', // Cloudinary folder (optional)
-        'resource_type' => 'auto', // Automatically detect the file type (image, video, or raw)
+public function addcertificate(Request $request)
+{
+    // Validation
+    $validated = $request->validate([
+        'StudentId' => 'required',
+        'Cname' => 'required',
+        'CDate' => 'required',
+        'coursename' => 'required',
+        'file' => 'required',
+    ], [
+        'StudentId.required' => 'Please enter Student Id',
+        'Cname.required' => 'Please enter a Student Certificate Name',
+        'CDate.required' => 'Please enter Date',
+        'coursename.required' => 'Please enter a coursename.',
     ]);
 
-    // Get the URL of the uploaded file
-    $filePath = $uploadResponse['secure_url'];
-}
+    // Initialize Cloudinary
+    $cloudinary = new Cloudinary();
 
-// Get input values
-$studentid = $request->input('student_names');
-$roll = $request['roll'];
-$batch = $request['batch'];
-$project = $request['project'];
-$giturl = $request['giturl'];
-$teamCount = $request['teamcount'];
+    // Handle file upload (to Cloudinary)
+    $filePath = null;
+    if ($request->hasFile('file')) {
+        // Get the uploaded file
+        $file = $request->file('file');
+        
+        // Upload the file to Cloudinary
+        $uploadResponse = $cloudinary->uploadApi()->upload($file->getRealPath(), [
+            'folder' => 'projects', // Cloudinary folder (optional)
+            'resource_type' => 'auto', // Automatically detect the file type (image, video, or raw)
+        ]);
 
-$projectId = $request['projectId'];
-$existingProject = Project::where('projectId', $projectId)->first();
+        // Get the URL of the uploaded file
+        $filePath = $uploadResponse['secure_url'];
+    }
 
-if ($existingProject) {
+    // Get input values
+    $studentid  = $request['StudentId'];
+    $Cname = $request['Cname'];
+    $CDate = $request['CDate'];
+    $coursename = $request['coursename'];
+    $file = $filePath;
 
-    Session::flash('error', 'Project ID already exists');
-    return redirect()->back();
-}else{
 
-        // Loop through student names and insert project data
-$responseMessages = [];
 
-foreach ($studentid as $studentName) {
+    $certificateID = date('Y') . '-' . $studentid;
+
+
     $insertData = [
-        'user_id' => $studentName, // Assuming the user is logged in
-        'projectId' => $projectId,
-        'roll_name' => $roll,
-        'username' => getuserName($studentName), // Using the student name here
-        'project' => $project,
-        'desc' => $project, // Assuming you have a project description
-        'status' => 1,
-        'git_url' => $giturl,
-        'type' => 'Web',
-        'team_count' => $teamCount,
-        'project_file' => $filePath, // Save Cloudinary URL in the 'project_file' column
-        'Areyoustudent' => 1,
+        'user_id' => getstudentid($studentid),
+        'studentid' => $studentid,
+        'Cname' => $Cname,
+        'CDate' => $CDate,
+        'coursename' => $coursename,
+        'file' => $file,
+        'certifacte_number' => $certificateID,
         'created_at' => now(),
+        'updated_at' => now(),
     ];
 
 
-    // Insert data into the Project model
-    Project::create($insertData);
-    $responseMessages[] = "Project for $studentName has been successfully created.";
+
+
+
+
+
+
+    $StudentCertificate = StudentCertificate::create($insertData);
+
+    if ($StudentCertificate) {
+        Session::flash('success', 'Certificate created Successfully');
+        return redirect()->back();
+    } else {
+        Session::flash('error', 'Something went wrong');
+        return redirect()->back();
+    }
 }
 
-// Flash success message and redirect back
-Session::flash('success', 'Project Created Successfully');
-return redirect()->back();
-
-}
 
 
 
 
 
 
- }
 
 
 
