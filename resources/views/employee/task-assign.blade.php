@@ -33,7 +33,7 @@
                                                 <th>Status</th>
                                                 <th>GitUrl / WebsiteUrl</th>
                                                 {{-- <th>Project File</th> --}}
-                                                <th>view</th>
+                                                {{-- <th>view</th> --}}
 
 
                                             </tr>
@@ -63,9 +63,9 @@
                                                         <a href="{{ $values->project_file }}" class="fa fa-2x fa-download"></a>
                                                     </td> --}}
 
-                                                    <td class="form_name">
+                                                    {{-- <td class="form_name">
                                                         <a href="{{ url('taskboard') }}" class="fa fa-2x fa-eye"></a>
-                                                    </td>
+                                                    </td> --}}
 
 
                                                 </tr>
