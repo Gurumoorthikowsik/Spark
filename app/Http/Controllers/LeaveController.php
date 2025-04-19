@@ -207,8 +207,11 @@ function read_notify(){
 
 public function getStudentsByRole(Request $request)
 {
+
+
     $roll = $request->input('roll');
     $batch = $request->input('batch');
+
 
     // Check if both role and batch are provided
     $studentsQuery = User::where('status', 1)

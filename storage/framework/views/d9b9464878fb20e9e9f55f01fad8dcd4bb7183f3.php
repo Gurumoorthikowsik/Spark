@@ -27,8 +27,7 @@
                             
                                 <div class="card-body p-4"> 
                                     <div class="text-center mt-2">
-                                        <h5 class="text-primary">Welcome Back Admin Portal</h5>
-                                        <p class="text-muted">Sign in to continue to K.</p>
+                                        <h5 class="text-primary">BraveSpark Admin</h5>
                                     </div>
                                     <div class="p-2 mt-4">
                                         <form action="#" id="login-form" class="login-form" method="post" autocomplete="off">
@@ -64,7 +63,7 @@
                                                         </span>
                                                 </button>
 
-                                                <button type="submit" name="login_btn" id="login_btn" class="btn btn-success w-100">Sign In</button>
+                                                <button type="submit" name="login_btn" id="login_btn" class="btn btn-success w-100">Login In</button>
                                             </div>
 
                              

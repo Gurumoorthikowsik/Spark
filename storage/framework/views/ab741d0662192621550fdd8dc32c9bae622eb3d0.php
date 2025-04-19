@@ -1,9 +1,9 @@
-@include('common.inner_header')
+<?php echo $__env->make('common.inner_header', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
 <!-- Include Select2 CSS -->
 <link href="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css" rel="stylesheet" />
 
-@include('common.sidebar')
+<?php echo $__env->make('common.sidebar', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
 
 <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
@@ -29,7 +29,7 @@
 
                         <div class="page-title-right">
                             <ol class="breadcrumb m-0">
-                                <li class="breadcrumb-item"><a href="{{URL::to('/dashboard')}}">Project Details</a></li>
+                                <li class="breadcrumb-item"><a href="<?php echo e(URL::to('/dashboard')); ?>">Project Details</a></li>
                                 <li class="breadcrumb-item active">Create Project</li>
                             </ol>
                         </div>
@@ -49,16 +49,16 @@
                     <div class="card-body">
                         <div class="live-preview">
 
-                        <form action="{{URL::to('addproject')}}" id="add-create-form" class="add-create-form" method="post" autocomplete="off" enctype="multipart/form-data">
-                            @csrf
+                        <form action="<?php echo e(URL::to('addproject')); ?>" id="add-create-form" class="add-create-form" method="post" autocomplete="off" enctype="multipart/form-data">
+                            <?php echo csrf_field(); ?>
                             <div class="row gy-5">
                                     <div class="col-lg-6">
                                         <div class="input-group">                     
                                             <select class="form-select" id="inputGroupSelect01" name="roll">
                                                 <option value="">Choose student Role...</option>
-                                                @foreach ($roll as $value)
-                                                    <option value="{{$value->roll}}">{{$value->roll}}</option>
-                                                @endforeach
+                                                <?php $__currentLoopData = $roll; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $value): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                                    <option value="<?php echo e($value->roll); ?>"><?php echo e($value->roll); ?></option>
+                                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                             </select>
                                         </div>
                                     </div>
@@ -175,7 +175,7 @@
 
 
 
-@include('common.inner_footer')                                    
+<?php echo $__env->make('common.inner_footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>                                    
 
 
 
@@ -204,7 +204,7 @@ $(document).ready(function() {
 
         if (roll && batch) {
             $.ajax({
-                url: '{{ route('getStudentsByRole') }}',  // Laravel route
+                url: '<?php echo e(route('getStudentsByRole')); ?>',  // Laravel route
                 type: 'GET',
                 data: { 
                     roll: roll,
@@ -251,40 +251,41 @@ $(document).ready(function() {
 
 
 <script type="text/javascript">
-    @if (session('success'))
-        toastr.success('{{ session('success') }}', 'Success', {
+    <?php if(session('success')): ?>
+        toastr.success('<?php echo e(session('success')); ?>', 'Success', {
             timeOut: 2000
         });
-    @endif
+    <?php endif; ?>
 
-    @if (session('error'))
-        toastr.error('{{ session('error') }}', {
+    <?php if(session('error')): ?>
+        toastr.error('<?php echo e(session('error')); ?>', {
             timeOut: 2000
         });
-    @endif
+    <?php endif; ?>
 
-    @if (session('primary'))
-        toastr.primary('{{ session('primary') }}', {
+    <?php if(session('primary')): ?>
+        toastr.primary('<?php echo e(session('primary')); ?>', {
             timeOut: 2000
         });
-    @endif
+    <?php endif; ?>
 
-    @if (session('message'))
-        toastr.message('{{ session('message') }}', {
+    <?php if(session('message')): ?>
+        toastr.message('<?php echo e(session('message')); ?>', {
             timeOut: 2000
         });
-    @endif
+    <?php endif; ?>
 
-    @if (session('info'))
-        toastr.info('{{ session('info') }}', {
+    <?php if(session('info')): ?>
+        toastr.info('<?php echo e(session('info')); ?>', {
             timeOut: 2000
         });
-    @endif
+    <?php endif; ?>
 
 
-    @if (!empty($errors->all()))
-        @foreach ($errors->all() as $error)
-            toastr.error("{{ $error }}")
-        @endforeach
-    @endif
+    <?php if(!empty($errors->all())): ?>
+        <?php $__currentLoopData = $errors->all(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $error): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+            toastr.error("<?php echo e($error); ?>")
+        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+    <?php endif; ?>
 </script>
+<?php /**PATH C:\xampp\htdocs\dashboard\code\GIT\Spark\resources\views/project/create-project.blade.php ENDPATH**/ ?>

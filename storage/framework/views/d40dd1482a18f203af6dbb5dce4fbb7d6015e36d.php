@@ -28,19 +28,28 @@
 
 
     </head>
+
+    <style>
+        button#login_btn {
+    background-color: green;
+}
+
+.auth-page-content {
+    background-image: url('https://images.hdqwalls.com/download/beautiful-landscape-digital-art-4k-tj-1920x1080.jpg');
+
+    height: 674px;
+}
+
+    </style>
+
+
     <body>
         
-    <div class="auth-page-wrapper pt-5">
+    <div class="auth-page-wrapper">
         <!-- auth page bg -->
-        <div class="auth-one-bg-position auth-one-bg"  id="auth-particles">
-            <div class="bg-overlay"></div>
             
-            <div class="shape">
-                <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1440 120">
-                    <path d="M 0,36 C 144,53.6 432,123.2 720,124 C 1008,124.8 1296,56.8 1440,40L1440 140L0 140z"></path>
-                </svg>
-            </div>
-        </div>
+       
+
 
 
         <?php /**PATH C:\xampp\htdocs\dashboard\code\GIT\Spark\resources\views/common/header.blade.php ENDPATH**/ ?>
